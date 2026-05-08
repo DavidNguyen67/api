@@ -1,0 +1,30 @@
+- rest:
+    path: /v1/doctor/medical-record
+    post:
+      - path: /
+        to: direct:doctor-medical-record-create
+    get:
+      - path: /
+        to: direct:doctor-medical-record-list
+      - path: /count
+        to: direct:doctor-medical-record-count
+      - path: /{id}
+        to: direct:doctor-medical-record-get
+    patch:
+      - path: /{id}
+        to: direct:doctor-medical-record-update
+      - path: /restore/{id}
+        to: direct:doctor-medical-record-restore
+    delete:
+      - path: /{id}
+        to: direct:doctor-medical-record-delete
+
+- rest:
+    path: /v1/patient/medical-record
+    get:
+      - path: /
+        to: direct:patient-medical-record-list
+      - path: /count
+        to: direct:patient-medical-record-count
+      - path: /{id}
+        to: direct:patient-medical-record-get

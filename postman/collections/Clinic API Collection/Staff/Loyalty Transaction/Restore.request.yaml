@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://{{base_url}}/api/v1/staff/loyalty-transaction/restore/:id
+method: PATCH
+headers:
+  Content-Type: application/json
+pathVariables:
+  id: ""
+order: 6000

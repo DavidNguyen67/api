@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://{{base_url}}/api/v1/public/doctor-schedule-exception/:id
+method: GET
+headers:
+  Content-Type: application/json
+pathVariables:
+  id: ""
+order: 3000

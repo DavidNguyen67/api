@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://{{base_url}}/api/v1/admin/patient-profile/:id
+method: DELETE
+headers:
+  Content-Type: application/json
+pathVariables:
+  id: ""
+order: 7000

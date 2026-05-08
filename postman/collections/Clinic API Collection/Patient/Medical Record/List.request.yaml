@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://{{base_url}}/api/v1/patient/medical-record
+method: GET
+headers:
+  Content-Type: application/json
+order: 1000

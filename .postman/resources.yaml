@@ -2,6 +2,10 @@
 workspace:
   id: f19fcc0f-4dd2-4904-a3bb-b85510c455b0
 
+cloudResources:
+  collections:
+    ..\postman\collections\Clinic API Collection Copy: 904fd116-7cfe-4883-940f-608615946566
+
 # All resources in the `postman/` folder are automatically registered in Local View.
 # Point to additional files outside the `postman/` folder to register them individually. Example:
 #localResources:
