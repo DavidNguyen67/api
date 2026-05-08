@@ -1,9 +1,0 @@
-- rest:
-    path: /v1/admin/user
-    get:
-      - path: /
-        to: direct:user-list
-      - path: /count
-        to: direct:user-count
-      - path: /{id}
-        to: direct:user-get
