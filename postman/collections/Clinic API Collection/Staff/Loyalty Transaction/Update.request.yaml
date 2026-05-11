@@ -1,5 +1,5 @@
 $kind: http-request
-url: http://{{base_url}}/api/v1/staff/loyalty-transaction/:id
+url: "{{base_url}}/api/v1/staff/loyalty-transaction/:id"
 method: PATCH
 headers:
   Content-Type: application/json

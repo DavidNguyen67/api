@@ -1,6 +1,10 @@
 $kind: http-request
-url: http://{{base_url}}/api/v1/auth/login
+name: Login
+url: "{{base_url}}/api/v1/auth/login"
 method: POST
 headers:
   Content-Type: application/json
+body:
+  type: json
+  content: "{\r\n  // \"email\"\r\n}"
 order: 2000

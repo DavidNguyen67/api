@@ -1,5 +1,6 @@
 $kind: http-request
-url: http://{{base_url}}/api/v1/public/appointment
+name: List
+url: "{{base_url}}/api/v1/public/appointment"
 method: GET
 headers:
   Content-Type: application/json
