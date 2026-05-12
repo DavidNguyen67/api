@@ -1,6 +1,197 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/service"
+url: "{{base_url}}/api/v1/admin/service"
 method: POST
 headers:
   Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"{{name}}\",\r
+
+    \  \"slug\": \"{{slug}}\",\r
+
+    \  \"description\": \"{{description}}\",\r
+
+    \  \"image\": \"{{image}}\",\r
+
+    \  \"price\": {{price}},\r
+
+    \  \"promotionalPrice\": {{promotionalPrice}},\r
+
+    \  \"duration\": {{duration}},\r
+
+    \  \"isActive\": {{isActive}},\r
+
+    \  \"isFeatured\": {{isFeatured}},\r
+
+    \  \"specialtyId\": \"{{specialtyId}}\"\r
+
+    }"
+scripts:
+  - type: beforeRequest
+    code: "const services = [\r
+
+      \  \"Kham tong quat\",\r
+
+      \  \"Kham tim mach\",\r
+
+      \  \"Kham nhi\",\r
+
+      \  \"Kham da lieu\",\r
+
+      \  \"Xet nghiem mau\",\r
+
+      \  \"Sieu am tong quat\",\r
+
+      \  \"Noi soi tieu hoa\",\r
+
+      \  \"Tu van tam ly\",\r
+
+      \  \"Kham san phu khoa\",\r
+
+      \  \"Do dien tim\"\r
+
+      ];\r
+
+      \r
+
+      const descriptions = [\r
+
+      \  \"Dich vu kham va tu van suc khoe chuyen sau.\",\r
+
+      \  \"Ho tro chan doan va dieu tri hieu qua.\",\r
+
+      \  \"Duoc thuc hien boi doi ngu bac si kinh nghiem.\",\r
+
+      \  \"Trang thiet bi hien dai va quy trinh nhanh chong.\",\r
+
+      \  \"Mang den trai nghiem cham soc suc khoe tot nhat.\"\r
+
+      ];\r
+
+      \r
+
+      const selectedName =\r
+
+      \  services[Math.floor(Math.random() * services.length)];\r
+
+      \r
+
+      const slug = selectedName\r
+
+      \  .toLowerCase()\r
+
+      \  .normalize(\"NFD\")\r
+
+      \  .replace(/[\\u0300-\\u036f]/g, \"\")\r
+
+      \  .replace(/\\s+/g, \"-\");\r
+
+      \r
+
+      const price =\r
+
+      \  Math.floor(Math.random() * 900000) + 100000;\r
+
+      \r
+
+      const promotionalPrice =\r
+
+      \  Math.floor(price * (0.5 + Math.random() * 0.3));\r
+
+      \r
+
+      const durations = [15, 30, 45, 60, 90, 120];\r
+
+      \r
+
+      pm.variables.set(\"name\", selectedName);\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"slug\",\r
+
+      \  `${slug}-${Math.floor(Math.random() * 1000)}`\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"description\",\r
+
+      \  descriptions[Math.floor(Math.random() * descriptions.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"image\",\r
+
+      \  `https://picsum.photos/seed/${slug}/600/400`\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\"price\", price);\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"promotionalPrice\",\r
+
+      \  promotionalPrice\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"duration\",\r
+
+      \  durations[Math.floor(Math.random() * durations.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"isActive\",\r
+
+      \  Math.random() > 0.1\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"isFeatured\",\r
+
+      \  Math.random() > 0.7\r
+
+      );\r
+
+      \r
+
+      // replace bằng specialtyId thật\r
+
+      pm.variables.set(\r
+
+      \  \"specialtyId\",\r
+
+      \  \"4724ad6d-0f7c-41b9-a117-9dd1e5ffbd0a\"\r
+
+      );"
+    language: text/javascript
 order: 1000

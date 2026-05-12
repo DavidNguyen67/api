@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/public/patient-profile/:id"
+url: "{{base_url}}/api/v1/public/patient-profile/:id"
 method: PATCH
 headers:
   Content-Type: application/json

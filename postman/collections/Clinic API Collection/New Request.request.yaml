@@ -1,0 +1,5 @@
+$kind: http-request
+name: New Request
+url: http://localhost:8080/api/v1/init
+method: POST
+order: 2954273303300111

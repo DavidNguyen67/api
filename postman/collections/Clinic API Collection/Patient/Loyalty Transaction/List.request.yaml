@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/patient/loyalty-transaction"
+url: "{{base_url}}/api/v1/patient/loyalty-transaction"
 method: GET
 headers:
   Content-Type: application/json

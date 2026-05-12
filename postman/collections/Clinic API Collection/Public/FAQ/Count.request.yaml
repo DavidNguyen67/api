@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/public/faq/count"
+url: "{{base_url}}/api/v1/public/faq/count"
 method: GET
 headers:
   Content-Type: application/json

@@ -1,6 +1,218 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/specialty"
+name: Create
+url: "{{base_url}}/api/v1/admin/specialty"
 method: POST
 headers:
   Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"{{name}}\",\r
+
+    \  \"slug\": \"{{slug}}\",\r
+
+    \  \"description\": \"{{description}}\",\r
+
+    \  \"image\": \"{{image}}\",\r
+
+    \  \"displayOrder\": {{displayOrder}},\r
+
+    \  \"isActive\": {{isActive}},\r
+
+    \  \"specialtyType\": \"{{specialtyType}}\"\r
+
+    }"
+scripts:
+  - type: beforeRequest
+    code: "const specialties = [\r
+
+      \    {\r
+
+      \        name: \"Noi khoa\",\r
+
+      \        slug: \"noi-khoa\",\r
+
+      \        type: \"GENERAL\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Ngoai khoa\",\r
+
+      \        slug: \"ngoai-khoa\",\r
+
+      \        type: \"SURGERY\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Nhi khoa\",\r
+
+      \        slug: \"nhi-khoa\",\r
+
+      \        type: \"PEDIATRICS\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Da lieu\",\r
+
+      \        slug: \"da-lieu\",\r
+
+      \        type: \"DERMATOLOGY\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Tim mach\",\r
+
+      \        slug: \"tim-mach\",\r
+
+      \        type: \"CARDIOLOGY\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Chan thuong chinh hinh\",\r
+
+      \        slug: \"chan-thuong-chinh-hinh\",\r
+
+      \        type: \"ORTHOPEDICS\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Than kinh\",\r
+
+      \        slug: \"than-kinh\",\r
+
+      \        type: \"NEUROLOGY\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Tam than\",\r
+
+      \        slug: \"tam-than\",\r
+
+      \        type: \"PSYCHIATRY\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"San phu khoa\",\r
+
+      \        slug: \"san-phu-khoa\",\r
+
+      \        type: \"GYNECOLOGY\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \        name: \"Noi tiet\",\r
+
+      \        slug: \"noi-tiet\",\r
+
+      \        type: \"ENDOCRINOLOGY\"\r
+
+      \    }\r
+
+      ];\r
+
+      \r
+
+      const selected =\r
+
+      \    specialties[Math.floor(Math.random() * specialties.length)];\r
+
+      \r
+
+      const descriptions = [\r
+
+      \    \"Chuyen khoa voi doi ngu bac si nhieu kinh nghiem.\",\r
+
+      \    \"Ho tro kham va dieu tri theo tieu chuan hien dai.\",\r
+
+      \    \"Dich vu y te chat luong cao cho benh nhan.\",\r
+
+      \    \"Chuyen dieu tri cac van de suc khoe pho bien.\",\r
+
+      \    \"Cham soc suc khoe toan dien cho benh nhan.\"\r
+
+      ];\r
+
+      \r
+
+      pm.variables.set(\"name\", selected.name);\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"slug\",\r
+
+      \    `${selected.slug}-${Math.floor(Math.random() * 1000)}`\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"description\",\r
+
+      \    descriptions[Math.floor(Math.random() * descriptions.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"image\",\r
+
+      \    `https://picsum.photos/seed/${selected.slug}/500/300`\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"displayOrder\",\r
+
+      \    Math.floor(Math.random() * 20)\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"isActive\",\r
+
+      \    Math.random() > 0.2\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"specialtyType\",\r
+
+      \    selected.type\r
+
+      );"
+    language: text/javascript
 order: 1000

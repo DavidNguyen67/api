@@ -6,5 +6,11 @@ headers:
   Content-Type: application/json
 body:
   type: json
-  content: "{\r\n  // \"email\"\r\n}"
+  content: "{\r
+
+    \  \"email\": \"user57561@gmail.com\",\r
+
+    \  \"password\": \"Password@123\"\r
+
+    }"
 order: 2000

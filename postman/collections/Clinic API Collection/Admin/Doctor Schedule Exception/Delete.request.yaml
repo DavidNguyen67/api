@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/doctor-schedule-exception/:id"
+url: "{{base_url}}/api/v1/admin/doctor-schedule-exception/:id"
 method: DELETE
 headers:
   Content-Type: application/json

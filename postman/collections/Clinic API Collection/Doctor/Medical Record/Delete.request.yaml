@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/doctor/medical-record/:id"
+url: "{{base_url}}/api/v1/doctor/medical-record/:id"
 method: DELETE
 headers:
   Content-Type: application/json

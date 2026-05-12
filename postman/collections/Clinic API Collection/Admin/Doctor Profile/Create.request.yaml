@@ -1,6 +1,180 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/doctor-profile"
+name: Create
+url: "{{base_url}}/api/v1/admin/doctor-profile"
 method: POST
 headers:
   Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"userId\": \"{{userId}}\",\r
+
+    \  \"specialtyId\": \"{{specialtyId}}\",\r
+
+    \  \"degree\": \"{{degree}}\",\r
+
+    \  \"experienceYears\": {{experienceYears}},\r
+
+    \  \"education\": \"{{education}}\",\r
+
+    \  \"bio\": \"{{bio}}\",\r
+
+    \  \"consultationFee\": {{consultationFee}},\r
+
+    \  \"isFeatured\": {{isFeatured}}\r
+
+    }"
+scripts:
+  - type: beforeRequest
+    code: "const degrees = [\r
+
+      \    \"MBBS\",\r
+
+      \    \"MD\",\r
+
+      \    \"PhD\",\r
+
+      \    \"CKI\",\r
+
+      \    \"CKII\",\r
+
+      \    \"PGS.TS\",\r
+
+      \    \"TS.BS\"\r
+
+      ];\r
+
+      \r
+
+      const educations = [\r
+
+      \    \"Tot nghiep Dai hoc Y Ha Noi.\",\r
+
+      \    \"Dao tao chuyen sau tai Benh vien Bach Mai.\",\r
+
+      \    \"Co kinh nghiem hoc tap va nghien cuu y khoa.\",\r
+
+      \    \"Hoan thanh chuong trinh noi tru y khoa.\",\r
+
+      \    \"Tham gia nhieu khoa dao tao chuyen mon.\"\r
+
+      ];\r
+
+      \r
+
+      const bios = [\r
+
+      \    \"Bac si nhieu kinh nghiem trong kham va dieu tri.\",\r
+
+      \    \"Chuyen gia trong linh vuc y khoa va cham soc benh nhan.\",\r
+
+      \    \"Tan tam voi benh nhan va dat y duc len hang dau.\",\r
+
+      \    \"Co nhieu nam cong tac tai cac benh vien lon.\",\r
+
+      \    \"Luon cap nhat phuong phap dieu tri hien dai.\"\r
+
+      ];\r
+
+      \r
+
+      const consultationFees = [\r
+
+      \    100000,\r
+
+      \    200000,\r
+
+      \    300000,\r
+
+      \    500000,\r
+
+      \    700000,\r
+
+      \    1000000\r
+
+      ];\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"userId\",\r
+
+      \    pm.environment.get(\"userId\") ||\r
+
+      \    \"bf94c936-5b0a-4194-8f08-778e987b5ce5\"\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"specialtyId\",\r
+
+      \    \"8cd4059c-d6ed-4d8c-b76b-0a81910b8393\"\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"degree\",\r
+
+      \    degrees[Math.floor(Math.random() * degrees.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"experienceYears\",\r
+
+      \    Math.floor(Math.random() * 31)\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"education\",\r
+
+      \    educations[Math.floor(Math.random() * educations.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"bio\",\r
+
+      \    bios[Math.floor(Math.random() * bios.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"consultationFee\",\r
+
+      \    consultationFees[Math.floor(Math.random() * consultationFees.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"isFeatured\",\r
+
+      \    Math.random() > 0.7\r
+
+      );"
+    language: text/javascript
 order: 1000

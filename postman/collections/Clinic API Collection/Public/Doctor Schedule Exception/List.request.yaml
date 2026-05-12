@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/public/doctor-schedule-exception"
+url: "{{base_url}}/api/v1/public/doctor-schedule-exception"
 method: GET
 headers:
   Content-Type: application/json
