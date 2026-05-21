@@ -1,6 +1,13 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/staff/invoice"
+name: List
+url: http://localhost:8080/api/v1/patient/review/appointment/f6c4ef5d-1f74-40db-885b-c96e61544a53
 method: GET
 headers:
-  Content-Type: application/json
+  Accept: application/json, text/plain, */*
+  Accept-Language: vi,en-US;q=0.9,en;q=0.8
+  Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI1ZDRkOTMxOS1hNjNmLTRlNmUtODc4NC0yNTg0OTJiNDQwOTIiLCJzdWIiOiIyNmRlZjg5OC1mOWY3LTRjYzAtOWQ5OS1hYjMyMTBlNmUzNTciLCJlbWFpbCI6InBhdGllbnRAZ21haWwuY29tIiwicm9sZSI6IlBBVElFTlQiLCJmdWxsTmFtZSI6Ik5ndXllbiBWYW4gTWluaCBRdWFuIiwic3RhdHVzIjoiQUNUSVZFIiwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc3OTI0OTQ1OCwiZXhwIjoxNzc5MzM1ODU4fQ.FBrrfpS1AEwtv1b2cQQrzOFEPHMPysEol78XWvPBKVfCVFr2JjX-dLNIyGxF9cnOiRH1J6V0RQv-ECobUmUmvBxKY-jKMVJ0Cf8QMYijvDeFf3DoJh8MmYSuM3ZAY0PIhwp6-JzGl4gNrBsZmdfhrZfIrZpfybR5a0AfvNeQEzzQ9wItRU5yaKE7-1v4ucQdVUq7Y46JK3O2dLoz6QE5zpD7JA7JV8ySQcKtNt27sdAyOJSbuJPhnLkJFyC6jGcj5ot-7H7U-LzdxtiR1VixfSFru7dCYvUZuuDTPSm3Uuq_zdF3F_uIOhINaMXO3RIGksvSZKFPuZubcc8kWYIoIA
+  Connection: keep-alive
+  Origin: http://localhost:3000
+  Referer: http://localhost:3000/
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36 Edg/148.0.0.0
 order: 2000

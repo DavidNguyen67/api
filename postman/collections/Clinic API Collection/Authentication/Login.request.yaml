@@ -8,9 +8,9 @@ body:
   type: json
   content: "{\r
 
-    \  \"email\": \"user57561@gmail.com\",\r
+    \  \"email\": \"patient@gmail.com\",\r
 
-    \  \"password\": \"Password@123\"\r
+    \  \"password\": \"0964912094Quan@\"\r
 
     }"
 order: 2000

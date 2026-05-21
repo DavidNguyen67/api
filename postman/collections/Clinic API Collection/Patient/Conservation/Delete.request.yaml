@@ -1,8 +1,8 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/specialty/:id"
-method: PATCH
+url: "{{base_url}}/api/v1/admin/faq/:id"
+method: DELETE
 headers:
   Content-Type: application/json
 pathVariables:
   id: ""
-order: 6000
+order: 7000

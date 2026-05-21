@@ -1,8 +1,9 @@
 $kind: http-request
+name: Get by ID
 url: "{{base_url}}/api/v1/public/doctor-profile/:id"
 method: GET
 headers:
   Content-Type: application/json
 pathVariables:
-  id: ""
+  id: 1c2f97ba-fdc2-41b5-90dd-64c074ee23c2
 order: 3000

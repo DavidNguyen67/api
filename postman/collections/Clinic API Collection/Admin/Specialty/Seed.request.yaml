@@ -1,28 +1,9 @@
 $kind: http-request
-name: Create
-url: "{{base_url}}/api/v1/admin/specialty"
+name: Seed
+url: "{{base_url}}/api/v1/admin/specialty/sê"
 method: POST
 headers:
   Content-Type: application/json
-body:
-  type: json
-  content: "{\r
-
-    \  \"name\": \"{{name}}\",\r
-
-    \  \"slug\": \"{{slug}}\",\r
-
-    \  \"description\": \"{{description}}\",\r
-
-    \  \"image\": \"{{image}}\",\r
-
-    \  \"displayOrder\": {{displayOrder}},\r
-
-    \  \"isActive\": {{isActive}},\r
-
-    \  \"specialtyType\": \"{{specialtyType}}\"\r
-
-    }"
 scripts:
   - type: beforeRequest
     code: "const specialties = [\r
@@ -215,4 +196,4 @@ scripts:
 
       );"
     language: text/javascript
-order: 2000
+order: 1037

@@ -1,6 +1,6 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/doctor/appointment"
+url: "{{base_url}}/api/v1/admin/faq"
 method: GET
 headers:
   Content-Type: application/json
-order: 3000
+order: 2000

@@ -1,5 +1,6 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/doctor/appointment"
+name: Create
+url: "{{base_url}}/api/v1/patient/conservation"
 method: POST
 headers:
   Content-Type: application/json

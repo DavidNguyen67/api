@@ -1,8 +1,8 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/specialty/:id"
+url: "{{base_url}}/api/v1/admin/faq/:id"
 method: PATCH
 headers:
   Content-Type: application/json
 pathVariables:
   id: ""
-order: 6000
+order: 5000

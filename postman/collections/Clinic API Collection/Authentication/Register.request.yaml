@@ -1,9 +1,26 @@
 $kind: http-request
+name: Register
 url: "{{base_url}}/api/v1/auth/register"
 method: POST
 body:
   type: json
-  content: ""
+  content: "{\r
+
+    \  \"email\": \"admin@gmail.com\",\r
+
+    \  \"name\": \"{{name}}\",\r
+
+    \  \"phone\": \"{{phone}}\",\r
+
+    \  \"password\": \"0964912094Quan@\",\r
+
+    \  \"dateOfBirth\": \"{{dateOfBirth}}\",\r
+
+    \  \"gender\": \"{{gender}}\",\r
+
+    \  \"role\": \"ADMIN\"\r
+
+    }"
   $type: |-
     {
         "type": "object",
@@ -32,4 +49,194 @@ body:
             }
         }
     }
+scripts:
+  - type: beforeRequest
+    code: "// ===== Random Vietnamese names =====\r
+
+      const names = [\r
+
+      \    \"Nguyen Van An\",\r
+
+      \    \"Tran Thi Mai\",\r
+
+      \    \"Le Hoang Nam\",\r
+
+      \    \"Pham Gia Bao\",\r
+
+      \    \"Vo Minh Thu\",\r
+
+      \    \"Dang Quoc Viet\",\r
+
+      \    \"Bui Thanh Tung\",\r
+
+      \    \"Do Khanh Linh\"\r
+
+      ];\r
+
+      \r
+
+      // ===== Gender =====\r
+
+      const genders = [\"MALE\", \"FEMALE\"];\r
+
+      \r
+
+      // ===== Roles =====\r
+
+      const roles = [\r
+
+      \    \"PATIENT\",\r
+
+      \    \"DOCTOR\",\r
+
+      \    \"STAFF\",\r
+
+      \    \"ADMIN\"\r
+
+      ];\r
+
+      \r
+
+      // ===== Random name =====\r
+
+      const name =\r
+
+      \    names[Math.floor(Math.random() * names.length)];\r
+
+      \r
+
+      // ===== Random number =====\r
+
+      const randomNumber =\r
+
+      \    Math.floor(Math.random() * 100000);\r
+
+      \r
+
+      // ===== Email =====\r
+
+      const email =\r
+
+      \    `user${randomNumber}@gmail.com`;\r
+
+      \r
+
+      // ===== Vietnamese phone =====\r
+
+      const prefixes = [\r
+
+      \    \"032\", \"033\", \"034\",\r
+
+      \    \"035\", \"036\", \"037\",\r
+
+      \    \"038\", \"039\"\r
+
+      ];\r
+
+      \r
+
+      const prefix =\r
+
+      \    prefixes[Math.floor(Math.random() * prefixes.length)];\r
+
+      \r
+
+      const phone =\r
+
+      \    prefix + Math.floor(1000000 + Math.random() * 9000000);\r
+
+      \r
+
+      // ===== Password =====\r
+
+      const password = \"Password@123\";\r
+
+      \r
+
+      // ===== Date of birth =====\r
+
+      function randomDob() {\r
+
+      \r
+
+      \    const start = new Date(1970, 0, 1);\r
+
+      \    const end = new Date(2005, 11, 31);\r
+
+      \r
+
+      \    const dob = new Date(\r
+
+      \        start.getTime() +\r
+
+      \        Math.random() * (end.getTime() - start.getTime())\r
+
+      \    );\r
+
+      \r
+
+      \    const day =\r
+
+      \        String(dob.getDate()).padStart(2, '0');\r
+
+      \r
+
+      \    const month =\r
+
+      \        String(dob.getMonth() + 1).padStart(2, '0');\r
+
+      \r
+
+      \    const year =\r
+
+      \        dob.getFullYear();\r
+
+      \r
+
+      \    return `${day}/${month}/${year}`;\r
+
+      }\r
+
+      \r
+
+      // ===== Local variables only =====\r
+
+      pm.variables.set(\"email\", email);\r
+
+      \r
+
+      pm.variables.set(\"name\", name);\r
+
+      \r
+
+      pm.variables.set(\"phone\", phone);\r
+
+      \r
+
+      pm.variables.set(\"password\", password);\r
+
+      \r
+
+      pm.variables.set(\"dateOfBirth\", randomDob());\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"gender\",\r
+
+      \    genders[Math.floor(Math.random() * genders.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"role\",\r
+
+      \    roles[Math.floor(Math.random() * roles.length)]\r
+
+      );"
+    language: text/javascript
 order: 1000

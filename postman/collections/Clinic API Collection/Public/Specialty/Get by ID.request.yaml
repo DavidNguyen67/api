@@ -1,8 +1,9 @@
 $kind: http-request
+name: Get by ID
 url: "{{base_url}}/api/v1/public/specialty/:id"
 method: GET
 headers:
   Content-Type: application/json
 pathVariables:
-  id: ""
+  id: 8cd4059c-d6ed-4d8c-b76b-0a81910b8393
 order: 4000

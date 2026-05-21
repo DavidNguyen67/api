@@ -1,5 +1,6 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/service"
+name: Seed
+url: "{{base_url}}/api/v1/admin/service/seed"
 method: POST
 headers:
   Content-Type: application/json
@@ -194,4 +195,5 @@ scripts:
 
       );"
     language: text/javascript
-order: 2000
+examples: .resources/Seed.resources/examples
+order: 1673

@@ -1,6 +1,7 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/doctor-schedule-exception"
+name: Create
+url: "{{base_url}}/api/v1/patient/appointment"
 method: POST
 headers:
   Content-Type: application/json
-order: 2000
+order: 1207

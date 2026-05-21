@@ -1,7 +1,7 @@
 $kind: collection
+name: Clinic API Collection
 description: Complete Clinic API Collection with all endpoints organized by role
 variables:
-  base_url: http://localhost:8080
   auth_token: ""
 auth:
   - id: 7c16e7f7-9017-4b2e-b5bd-a7591b3ec0e8

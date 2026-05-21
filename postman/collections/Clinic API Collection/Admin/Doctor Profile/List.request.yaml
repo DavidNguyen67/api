@@ -3,4 +3,4 @@ url: "{{base_url}}/api/v1/admin/doctor-profile"
 method: GET
 headers:
   Content-Type: application/json
-order: 2000
+order: 3000

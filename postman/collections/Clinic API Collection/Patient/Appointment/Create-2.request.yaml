@@ -1,0 +1,248 @@
+$kind: http-request
+name: Create
+url: "{{base_url}}/api/v1/patient/appointment"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"patientProfileId\": \"{{patientProfileId}}\",\r
+
+    \  \"doctorProfileId\": \"{{doctorProfileId}}\",\r
+
+    \  \"appointmentDate\": \"{{appointmentDate}}\",\r
+
+    \  \"bookingType\": \"{{bookingType}}\",\r
+
+    \  \"reason\": \"{{reason}}\",\r
+
+    \  \"symptoms\": \"{{symptoms}}\",\r
+
+    \  \"notes\": \"{{notes}}\"\r
+
+    }"
+scripts:
+  - type: beforeRequest
+    code: "const bookingTypes = [\r
+
+      \    \"ONLINE\",\r
+
+      \    \"PHONE\",\r
+
+      \    \"WALK_IN\"\r
+
+      ];\r
+
+      \r
+
+      const reasons = [\r
+
+      \    \"Kham tong quat\",\r
+
+      \    \"Tai kham dinh ky\",\r
+
+      \    \"Kiem tra suc khoe\",\r
+
+      \    \"Tu van dieu tri\",\r
+
+      \    \"Kham chuyen khoa\"\r
+
+      ];\r
+
+      \r
+
+      const symptomsList = [\r
+
+      \    \"Sot, ho, met moi\",\r
+
+      \    \"Dau dau va chong mat\",\r
+
+      \    \"Kho tho nhe\",\r
+
+      \    \"Dau bung keo dai\",\r
+
+      \    \"Noi man do tren da\",\r
+
+      \    \"Dau nguc thoang qua\"\r
+
+      ];\r
+
+      \r
+
+      const notesList = [\r
+
+      \    \"Benh nhan da dat lich truoc.\",\r
+
+      \    \"Can tu van them ve thuoc.\",\r
+
+      \    \"Mang theo ket qua xet nghiem cu.\",\r
+
+      \    \"Can theo doi them sau kham.\",\r
+
+      \    \"Khong co ghi chu dac biet.\"\r
+
+      ];\r
+
+      \r
+
+      // ===== Future datetime =====\r
+
+      function futureDateTime() {\r
+
+      \r
+
+      \    const date = new Date();\r
+
+      \r
+
+      \    // random 1 -> 15 days\r
+
+      \    date.setDate(\r
+
+      \        date.getDate() +\r
+
+      \        Math.floor(Math.random() * 15) + 1\r
+
+      \    );\r
+
+      \r
+
+      \    // random hour\r
+
+      \    date.setHours(\r
+
+      \        8 + Math.floor(Math.random() * 9)\r
+
+      \    );\r
+
+      \r
+
+      \    // random minute\r
+
+      \    const minutes = [0, 15, 30, 45];\r
+
+      \r
+
+      \    date.setMinutes(\r
+
+      \        minutes[Math.floor(Math.random() * minutes.length)]\r
+
+      \    );\r
+
+      \r
+
+      \    date.setSeconds(0);\r
+
+      \r
+
+      \    const day =\r
+
+      \        String(date.getDate()).padStart(2, '0');\r
+
+      \r
+
+      \    const month =\r
+
+      \        String(date.getMonth() + 1).padStart(2, '0');\r
+
+      \r
+
+      \    const year =\r
+
+      \        date.getFullYear();\r
+
+      \r
+
+      \    const hour =\r
+
+      \        String(date.getHours()).padStart(2, '0');\r
+
+      \r
+
+      \    const minute =\r
+
+      \        String(date.getMinutes()).padStart(2, '0');\r
+
+      \r
+
+      \    return `${hour}:${minute} ${day}/${month}/${year}`;\r
+
+      }\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"patientProfileId\",\r
+
+      \    pm.environment.get(\"patientProfileId\") ||\r
+
+      \    \"a49bab6a-1f73-4485-933f-6a07083a7651\"\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"doctorProfileId\",\r
+
+      \    pm.environment.get(\"doctorProfileId\") ||\r
+
+      \    \"318c33f6-c955-46f8-9619-fd4d05f9bef7\"\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"appointmentDate\",\r
+
+      \    futureDateTime()\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"bookingType\",\r
+
+      \    bookingTypes[Math.floor(Math.random() * bookingTypes.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"reason\",\r
+
+      \    reasons[Math.floor(Math.random() * reasons.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"symptoms\",\r
+
+      \    symptomsList[Math.floor(Math.random() * symptomsList.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \    \"notes\",\r
+
+      \    notesList[Math.floor(Math.random() * notesList.length)]\r
+
+      );"
+    language: text/javascript
+order: 3550455906959782

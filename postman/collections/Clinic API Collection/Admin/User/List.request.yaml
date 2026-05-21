@@ -1,6 +1,9 @@
 $kind: http-request
-url: "{{base_url}}/api/v1/admin/user"
+name: List
+url: "{{base_url}}/api/v1/admin/user?role=PATIENT"
 method: GET
 headers:
   Content-Type: application/json
-order: 1000
+queryParams:
+  role: PATIENT
+order: 2000

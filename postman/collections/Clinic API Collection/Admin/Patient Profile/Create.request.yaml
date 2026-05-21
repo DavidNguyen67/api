@@ -1,6 +1,168 @@
 $kind: http-request
+name: Create
 url: "{{base_url}}/api/v1/admin/patient-profile"
 method: POST
 headers:
   Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"userId\": \"{{userId}}\",\r
+
+    \  \"address\": \"{{address}}\",\r
+
+    \  \"insuranceNumber\": \"{{insuranceNumber}}\",\r
+
+    \  \"bloodType\": \"{{bloodType}}\",\r
+
+    \  \"allergies\": \"{{allergies}}\",\r
+
+    \  \"chronicDiseases\": \"{{chronicDiseases}}\"\r
+
+    }"
+scripts:
+  - type: beforeRequest
+    code: "const bloodTypes = [\r
+
+      \  \"A+\",\r
+
+      \  \"A-\",\r
+
+      \  \"B+\",\r
+
+      \  \"B-\",\r
+
+      \  \"AB+\",\r
+
+      \  \"AB-\",\r
+
+      \  \"O+\",\r
+
+      \  \"O-\"\r
+
+      ];\r
+
+      \r
+
+      const addresses = [\r
+
+      \  \"Ha Noi, Viet Nam\",\r
+
+      \  \"Da Nang, Viet Nam\",\r
+
+      \  \"Ho Chi Minh, Viet Nam\",\r
+
+      \  \"Hai Phong, Viet Nam\",\r
+
+      \  \"Can Tho, Viet Nam\"\r
+
+      ];\r
+
+      \r
+
+      const allergiesList = [\r
+
+      \  \"Di ung hai san\",\r
+
+      \  \"Di ung phan hoa\",\r
+
+      \  \"Di ung penicillin\",\r
+
+      \  \"Khong co di ung\",\r
+
+      \  \"Di ung sua\"\r
+
+      ];\r
+
+      \r
+
+      const chronicDiseasesList = [\r
+
+      \  \"Tieu duong\",\r
+
+      \  \"Tang huyet ap\",\r
+
+      \  \"Hen suyen\",\r
+
+      \  \"Khong co benh nen\",\r
+
+      \  \"Tim mach\"\r
+
+      ];\r
+
+      \r
+
+      // ===== Insurance number =====\r
+
+      function randomInsuranceNumber() {\r
+
+      \  return \"BHYT\" +\r
+
+      \    Math.floor(10000000 + Math.random() * 90000000);\r
+
+      }\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"userId\",\r
+
+      \  pm.environment.get(\"userId\") ||\r
+
+      \  \"b198cc16-fa63-4d5b-aef4-8561ee12be2b\"\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"address\",\r
+
+      \  addresses[Math.floor(Math.random() * addresses.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"insuranceNumber\",\r
+
+      \  randomInsuranceNumber()\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"bloodType\",\r
+
+      \  bloodTypes[Math.floor(Math.random() * bloodTypes.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"allergies\",\r
+
+      \  allergiesList[Math.floor(Math.random() * allergiesList.length)]\r
+
+      );\r
+
+      \r
+
+      pm.variables.set(\r
+
+      \  \"chronicDiseases\",\r
+
+      \  chronicDiseasesList[Math.floor(Math.random() * chronicDiseasesList.length)]\r
+
+      );"
+    language: text/javascript
 order: 1000

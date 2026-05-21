@@ -1,9 +1,10 @@
 $kind: http-request
-name: Create
-url: "{{base_url}}/api/v1/admin/doctor-profile"
+name: Seed
+url: "{{base_url}}/api/v1/admin/doctor-profile/seed"
 method: POST
 headers:
-  Content-Type: application/json
+  - key: Content-Type
+    value: application/json
 body:
   type: json
   content: "{\r
@@ -178,4 +179,4 @@ scripts:
 
       );"
     language: text/javascript
-order: 2000
+order: 1263

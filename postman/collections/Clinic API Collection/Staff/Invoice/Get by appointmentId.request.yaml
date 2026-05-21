@@ -1,0 +1,7 @@
+$kind: http-request
+name: Get by appointmentId
+url: "{{base_url}}/api/v1/staff/invoice/appointment/:id"
+method: GET
+pathVariables:
+  id: 5c6b6371-6b91-4755-a29f-f638013bb834
+order: 327827990780250

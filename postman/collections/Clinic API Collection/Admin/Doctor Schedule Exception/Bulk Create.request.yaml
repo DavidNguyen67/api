@@ -1,0 +1,8 @@
+$kind: http-request
+name: Bulk Create
+url: "{{base_url}}/api/v1/admin/doctor-schedule-exception/bulk-create"
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+order: 1036

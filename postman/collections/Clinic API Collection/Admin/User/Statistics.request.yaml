@@ -1,0 +1,7 @@
+$kind: http-request
+name: Statistics
+url: "{{base_url}}/api/v1/admin/user/statistics"
+method: GET
+headers:
+  Content-Type: application/json
+order: 1435
